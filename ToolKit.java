@@ -104,7 +104,7 @@ public class ToolKit {
             loopSum += doubleValues[i];
         }
 
-        //  Method 2 using streams... this is more efficient
+        //  Method 2 using streams
         double sum = Arrays.stream(doubleValues).sum();
         System.out.println(String.format("Sum of the values are : %s \n", sum));
     }
@@ -124,7 +124,7 @@ public class ToolKit {
             }
         }
 
-        //  Method one using anymatch in DoubleStream more efficient
+        //  Method one using anymatch in DoubleStream
         if(Arrays.stream(array).anyMatch(num -> num == searchValue)){
             keyword = "does";
         }
