@@ -60,33 +60,55 @@ public class ToolKit {
 
 
     public static void encryptString(Scanner scanner){
-        String encyptedString = "";
-        System.out.println("Please enter the string to encrypt");
+        System.out.println("Please enter the string to encrypt: ");
         String userInput = scanner.nextLine();
-        System.out.println("Please enter the value to encrypt string with");
-        int encryptValue = scanner.nextInt();
 
-        for (int i = 0; i <userInput.length(); i++) {
-            char c = userInput.charAt(i);
-            encyptedString += (char)((int)c + encryptValue);
+
+        while(true){
+            String encyptedString = "";
+            System.out.println("Please enter the value to encrypt string with: ");
+            int encryptValue = scanner.nextInt();
+
+            for (int i = 0; i <userInput.length(); i++) {
+                char c = userInput.charAt(i);
+                encyptedString += (char)((int)c + encryptValue);
+            }
+
+            if(!(encyptedString.matches("\\A\\p{ASCII}*\\z"))){
+                System.out.println("The encypted value contains unprintable characters! Please choose a lower encrypt value!");
+                scanner.nextLine();
+            }else{
+                System.out.println(String.format("Encrypted value is : %s \n",encyptedString));
+                return;
+            }
         }
-
-        System.out.println(String.format("Encrypted value is : %s \n",encyptedString));
     }
 
     public static void decryptString(Scanner scanner){
-        String decyptedString = "";
-        System.out.println("Please enter the string to decrypt");
+        System.out.println("Please enter the string to decrypt: ");
         String userInput = scanner.nextLine();
-        System.out.println("Please enter the value to decrypt string with");
-        int decryptValue = scanner.nextInt();
 
-        for (int i = 0; i <userInput.length(); i++) {
-            char c = userInput.charAt(i);
-            decyptedString += (char)((int)c - decryptValue);
+
+
+        while(true){
+            String decyptedString = "";
+
+            System.out.println("Please enter the value to decrypt string with: ");
+            int decryptValue = scanner.nextInt();
+
+            for (int i = 0; i <userInput.length(); i++) {
+                char c = userInput.charAt(i);
+                decyptedString += (char)((int)c - decryptValue);
+            }
+
+            if(!(decyptedString.matches("\\A\\p{ASCII}*\\z"))){
+                System.out.println("The encypted value contains unprintable characters! Please choose a lower encrypt value!");
+                scanner.nextLine();
+            }else{
+                System.out.println(String.format("Decrypted value is : %s \n",decyptedString));
+                return;
+            }
         }
-
-        System.out.println(String.format("Decrypted value is : %s \n",decyptedString));
     }
 
     public static void findSum(Scanner scanner){
@@ -110,7 +132,7 @@ public class ToolKit {
     }
 
     public static void findValue(Scanner scanner){
-        System.out.println("Enter values to search");
+        System.out.println("Enter values to search: ");
         double searchValue = scanner.nextDouble();
         double[] array =  {10.0, 9.9, 59.8, 29.0, 34.8, 60.7, 57.5, 69.9, 20.0, 36.0, 32.2, 99.9};
         String keyword = "does not";
