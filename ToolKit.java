@@ -127,8 +127,8 @@ public class ToolKit {
         }
 
         //  Method 2 using streams
-        double sum = Arrays.stream(doubleValues).sum();
-        System.out.println(String.format("Sum of the values are : %s \n", sum));
+//        double sum = Arrays.stream(doubleValues).sum();
+        System.out.println(String.format("Sum of the values are : %s \n", loopSum));
     }
 
     public static void findValue(Scanner scanner){
@@ -147,9 +147,9 @@ public class ToolKit {
         }
 
         //  Method one using anymatch in DoubleStream
-        if(Arrays.stream(array).anyMatch(num -> num == searchValue)){
-            keyword = "does";
-        }
+//        if(Arrays.stream(array).anyMatch(num -> num == searchValue)){
+//            keyword = "does";
+//        }
 
         System.out.println(String.format("Array %s contains value %s \n", keyword, searchValue));
     }
